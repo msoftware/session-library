@@ -1,5 +1,14 @@
 # PHP Session Library
 
+Version 1.1.0
+Add new functions 'getSessionIds' and 'deleteSession' to SessionContainer.
+
+Version 1.0.1
+Fix in composer.json
+
+Version 1.0.0
+First Version of PHP Session Library
+
 This session library is designed for PHP Applications without http interface. 
 It can be uesed if you have a running PHP service and you need to handle multiple sessions.
 

@@ -82,4 +82,21 @@ if ($testsession[3]->get("Test3") === "Value3")
 	echo "Test 9 OK\r\n";
 }
 
+$sessionIds = $container->getSessionIds();
+if (count ($sessionIds) == 2)
+{
+	echo "Test 10 OK\r\n";
+} else {
+	echo "Test 10 Failed\r\n";
+}
+
+$container->deleteSession($sessionIds[0]);
+$sessionIds = $container->getSessionIds();
+if (count ($sessionIds) == 1)
+{
+	echo "Test 11 OK\r\n";
+} else {
+	echo "Test 11 Failed\r\n";
+}
+
 ?>

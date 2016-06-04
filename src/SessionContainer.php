@@ -21,6 +21,24 @@ class SessionContainer {
 		$this->sessions = array ();
 	}
 
+	function deleteSession ($id)
+	{
+		unset($this->sessions[$id]);
+	}
+
+	function getSessionIds ()
+	{
+		$ret = array ();
+		foreach ($this->sessions as $id => $session)
+		{
+			if ($session->isValid ())			
+			{
+				$ret[] = $id;
+			}
+		}
+		return $ret;
+	}
+
 	function getSession ($id, $timeout = -1)
 	{
 		if (!isset ($this->sessions[$id]))
