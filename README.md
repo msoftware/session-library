@@ -15,6 +15,8 @@ First Version of PHP Session Library
 This session library is designed for PHP Applications without http interface. 
 It can be uesed if you have a running PHP service and you need to handle multiple sessions.
 
+Full PAI doc is available at [http://www.dieletztedomain.de/php-session-library-api-docs/](http://www.dieletztedomain.de/php-session-library-api-docs/)
+
 You can use composer to add it to your project:
 
 ```
