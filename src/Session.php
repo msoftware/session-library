@@ -8,6 +8,8 @@ class Session {
 	private $data;
 	private $timeout;
 	private $lastAccess;
+	private $created;
+	private $lastAccessed;
 
 	function __construct($id, $timeout = -1) 
 	{ 
@@ -15,12 +17,43 @@ class Session {
 		$this->data = array ();
 		$this->timeout = $timeout;
 		$this->lastAccess = time();
+		$this->created = time ();
 	} 
+
+	function getNames()
+	{
+		if (!$this->isValid())
+		{
+			throw new SessionException('Session timeout');
+		}
+		$ret = array ();
+		foreach ($this->data as $name => $val)
+		{
+			$ret [] = $name;
+		}
+		return $ret;
+	}
+
+	function getCreationTime()
+	{
+		if (!$this->isValid())
+		{
+			throw new SessionException('Session timeout');
+		}
+		return $this->created;
+	}
+
+	function getLastAccessedTime()
+	{
+		// No check for isValid here !!
+		return $this->lastAccessed;
+	}
 
 	function isValid ()
 	{
 		if ($this->timeout < 0) return true; // Always valid
 		$now = time ();
+		$this->lastAccessed = $now;
 		if (($now - $this->lastAccess) > $this->timeout)
 		{
 			return false; // Timeout
@@ -82,6 +115,5 @@ class Session {
 		$this->updateLastAccess();
 		$this->data[$key] = $value;
 	}
-
 } 
 

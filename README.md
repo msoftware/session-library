@@ -1,7 +1,10 @@
 # PHP Session Library
 
+Version 1.2.0
+Add new functions to Session (getNames(),getCreationTime(),getLastAccessedTime()) and new functions (existsSession(), cleanupInvalidSessions()) to SessionContainer. Add API doc generated with ApiGen
+
 Version 1.1.0
-Add new functions 'getSessionIds' and 'deleteSession' to SessionContainer.
+Add new functions (getSessionIds(), deleteSession()) to SessionContainer.
 
 Version 1.0.1
 Fix in composer.json
